@@ -27,7 +27,7 @@ if [[ -z "$WLR_SKIP_CONFIGURE" ]]; then
     logStatus "Generating configure script... "
     ./buildconf --force
 
-    export PHP_CONFIGURE=' --without-libxml --disable-dom --without-iconv --without-openssl --disable-simplexml --disable-xml --disable-xmlreader --disable-xmlwriter --without-pear --disable-phar --disable-opcache --disable-zend-signals --without-pcre-jit --with-sqlite3 --enable-pdo --with-pdo-sqlite --disable-fiber-asm'
+    export PHP_CONFIGURE=' --disable-all --disable-fiber-asm'
 
     logStatus "Configuring build with '${PHP_CONFIGURE}'... "
     ./configure --host=wasm32-wasi host_alias=wasm32-musl-wasi --target=wasm32-wasi target_alias=wasm32-musl-wasi ${PHP_CONFIGURE} || exit 1
